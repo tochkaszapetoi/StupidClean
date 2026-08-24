@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "iq_grower",
+  "version": "${version}",
+  "name": "StupidClean",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/iq_grower/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.tsz.iq_grower.client.Iq_growerDataGenerator"
+    ],
+    "client": [
+      "org.tsz.iq_grower.client.Iq_growerClient"
+    ],
+    "main": [
+      "org.tsz.iq_grower.Iq_grower"
+    ]
+  },
+  "mixins": [
+    "iq_grower.mixins.json",
+    {
+      "config": "iq_grower.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
