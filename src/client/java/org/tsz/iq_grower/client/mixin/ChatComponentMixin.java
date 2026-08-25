@@ -20,13 +20,11 @@ public class ChatComponentMixin {
     @WrapMethod(method = "addMessage(Lnet/minecraft/network/chat/Component;Lnet/minecraft/network/chat/MessageSignature;ILnet/minecraft/client/GuiMessageTag;Z)V")
     public void handleChatInput(Component component, MessageSignature messageSignature, int i, GuiMessageTag guiMessageTag, boolean bl, Operation<Void> original) {
         String json = Component.Serializer.toJson(component);
-        System.out.println(json);
         original.call(replaceText(json, "ILYADNEPR", ""), messageSignature, i , guiMessageTag, bl);
     }
     @Unique
     private Component replaceText(String json, String target, String replacement) {
         return editTag(json, "text", (s) ->{
-            System.out.println(s);
             return s.replace(target, replacement);
         });
     }
@@ -44,7 +42,6 @@ public class ChatComponentMixin {
             output.append(injectionConsumer.apply(sub));
         }
         output.append(json);
-        System.out.println(output);
         return Component.Serializer.fromJson(output.toString());
     }
 }

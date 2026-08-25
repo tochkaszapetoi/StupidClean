@@ -18,6 +18,9 @@
     ],
     "main": [
       "org.tsz.iq_grower.Iq_grower"
+    ],
+    "modmenu": [
+      "org.tsz.iq_grower.client.StupidCleanMenuIntegration"
     ]
   },
   "mixins": [
